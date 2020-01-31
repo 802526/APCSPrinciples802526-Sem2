@@ -3,7 +3,7 @@ class Boid {
   this.loc = createVector(x, y);
   this.vel = createVector(dx, dy);
   this.acc = createVector(0,0);
-  this.clr = color(random(0, 256), random(0, 256), random(0, 256))
+  this.clr = color(random(0, 255), random(0, 255), random(0, 255))
   }
 
   run() {
@@ -33,15 +33,23 @@ class Boid {
   }
 
   render() {
+    // for(var i=0; i<boids.length; i++){
+    //   let d = dist(this.loc.x, this.loc.y, boids[i].loc.x, boids[i].loc.y)
+    //   if(d < 200) {
+    //     stroke(this.clr, 50)
+    //     line(this.loc.x, this.loc.y, boids[i].loc.x, boids[i].loc.y)
+    //   }
+    // }
     for(var i=0; i<boids.length; i++){
       let d = dist(this.loc.x, this.loc.y, boids[i].loc.x, boids[i].loc.y)
       if(d < 200) {
-        stroke(this.clr, 50)
-        line(this.loc.x, this.loc.y, boids[i].loc.x, boids[i].loc.y)
+        stroke(this.clr, 50);
+        noFill();
+        triangle(this.loc.x, this.loc.y,  boids[i].loc.x, boids[i].loc.y, 400, 400)
       }
     }
-    fill(255, 135, 255)
-    ellipse(this.loc.x, this.loc.y, 10, 10)
+    // fill(255, 135, 255)
+    // ellipse(this.loc.x, this.loc.y, 10, 10)
   }
 
 }
