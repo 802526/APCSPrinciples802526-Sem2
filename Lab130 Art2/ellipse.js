@@ -21,12 +21,13 @@ class Ellipse {
   }
 
   update() {
-    
+    //in this function, make the new x y value the center createVector
   }
 
   render() {
     noFill();
     stroke(136, 207, 155);
     ellipse(this.r.x, this.r.y, this.width, this.height, this.radius);
+  //double check if this is the right values for the ellipse values
   }
 }

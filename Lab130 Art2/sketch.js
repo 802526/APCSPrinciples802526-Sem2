@@ -12,7 +12,8 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-
+  Ellipse.run();
+  //is this the right function name
 }
 
 function loadEllipse() {
