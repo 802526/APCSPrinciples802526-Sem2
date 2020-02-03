@@ -1,5 +1,5 @@
 //  Sky Gastinel
-// 	28 January 2020
+// 	3 February 2020
 //  This is a comment
 //  The setup function function is called once when your program begins
 function setup() {
@@ -16,5 +16,5 @@ function draw() {
 }
 
 function loadEllipse() {
-  Ellipse = new Ellipse()
+  Ellipse = new Ellipse(450, 400, 200, 50)
 }
