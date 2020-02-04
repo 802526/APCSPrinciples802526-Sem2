@@ -7,6 +7,7 @@ class Ellipse {
   this.height = height;
   this.radius = radius;
   this.a = 0
+  this.clr = color(random(73, 242), random(73, 242), random(73, 242))
   }
 
   run() {
@@ -21,14 +22,23 @@ class Ellipse {
   }
 
   update() {
-    this.a = this.a + 10;
+    this.a = this.a + 11;
+    this.radius = radiusSlider.value();
+    this.width = widthSlider.value();
   }
 
   render() {
     noFill();
-    stroke(136, 207, 155);
+    stroke(this.clr, 255);
     var center = this.getCenter();
-    ellipse(center.x, center.y, this.width, this.height);
+
+    push();
+    translate(center.x, center.y)
+    rotate(this.a);
+    ellipse(0, 0, this.width, this.height);
+    pop();
+
+//  ellipse(center.x, center.y, this.width, this.height);
   //double check if this is the right values for the ellipse values
   }
 }
