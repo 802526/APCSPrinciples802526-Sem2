@@ -37,8 +37,5 @@ class Ellipse {
     rotate(this.a);
     ellipse(0, 0, this.width, this.height);
     pop();
-
-//  ellipse(center.x, center.y, this.width, this.height);
-  //double check if this is the right values for the ellipse values
   }
 }
