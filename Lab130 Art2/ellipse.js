@@ -6,28 +6,29 @@ class Ellipse {
   this.width = width;
   this.height = height;
   this.radius = radius;
+  this.a = 0
   }
 
   run() {
-    center = getCenter();
-    update();
-    render();
+    this.update();
+    this.render();
   }
 
-  getCenter(angle) {
-    var x = this.radius*cos(angle) + this.r.x;
-    var y = this.radius*sin(angle) + this.r.y;
+  getCenter() {
+    var x = this.radius*cos(this.a) + this.r.x;
+    var y = this.radius*sin(this.a) + this.r.y;
     return createVector(x, y);
   }
 
   update() {
-    //in this function, make the new x y value the center createVector
+    this.a = this.a + 10;
   }
 
   render() {
     noFill();
     stroke(136, 207, 155);
-    ellipse(this.r.x, this.r.y, this.width, this.height, this.radius);
+    var center = this.getCenter();
+    ellipse(center.x, center.y, this.width, this.height);
   //double check if this is the right values for the ellipse values
   }
 }
