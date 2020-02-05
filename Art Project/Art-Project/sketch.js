@@ -53,7 +53,7 @@ function draw(){
     y[i] += vy[i];  // Advance vy pixels per frame.
 
     var sokudo = dist(0,0,vx[i],vy[i]); // Calculate velocity from X and Y components of velocity
-    var r = map(sokudo, 0, 198, 114, 247); //Calculate color according to speed
+    var r = map(sokudo, 0, 5, 0, 255); //Calculate color according to speed
     var g = map(sokudo, 0, 5, 64, 255);
     var b = map(sokudo, 0, 5, 128, 255);
     fill(r, g, b, 32);
