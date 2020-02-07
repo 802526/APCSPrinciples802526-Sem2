@@ -13,6 +13,8 @@ var magnetism = 10.0; //Attraction strength Negative value means repulsion.
 var radius = 1 ; //Radius of the circle to draw
 var gensoku = 0.95; // Slow down the movement of particles
 
+var randomEllipses = [];
+
 function setup(){
   createCanvas(windowWidth,windowHeight);
   noStroke();
@@ -29,6 +31,9 @@ function setup(){
     ax[i] = 0;
     ay[i] = 0;
   }
+
+  loadEllipses(10);
+
 }
 
 
@@ -60,4 +65,12 @@ function draw(){
     ellipse(x[i], y[i], radius, radius);
   }
 
+  randomEllipses[].run();
+
+}
+
+function loadEllipses(n) {
+  for(var i = 0; i < n; i++) {
+    randomEllipses[i] = new Ellipse(mouseX + random(-50, 50), mouseY + random(-50, 50), random(3, 8))
+  }
 }
