@@ -2,7 +2,7 @@ class Ellipse {
   constructor(x, y, w) {
     this.loc = createVector(x, y);
     this.w = w;
-    this.clr = color(random(100, 122), random(140, 210), random(150, 200), 32);
+    this.clr = color(random(100, 122), random(140, 210), random(150, 200));
   }
 
   run() {
