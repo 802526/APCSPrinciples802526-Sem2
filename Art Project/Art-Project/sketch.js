@@ -1,6 +1,6 @@
 //Attraction / repulsion model
 //Sky Gastinel
-//5 February 2020
+//12 February 2020
 var num = 1000;
 var vx = new Array(num);
 var vy = new Array(num);
@@ -13,7 +13,8 @@ var magnetism = 10.0; //Attraction strength Negative value means repulsion.
 var radius = 1 ; //Radius of the circle to draw
 var gensoku = 0.95; // Slow down the movement of particles
 
-//var randomEllipses = [];
+var ball;
+var mode = 1;
 
 function setup(){
   createCanvas(windowWidth,windowHeight);
@@ -32,21 +33,47 @@ function setup(){
     ay[i] = 0;
   }
 
-  //loadEllipses(5);
+  ball = new Ball(random(0, windowWidth), random(0,windowHeight/2), 2, 2, 2)
 
 }
 
+function keyPressed() {
+  console.log(keyCode)
+  if(keyCode === 32 &&
+    mode === 1){
+    mode = 2;
+  }else if(keyCode === 32 &&
+    mode === 2){
+    mode = 1;
+  }
+}
 
 function draw(){
+
+  textSize(20);
+  text('Press space bar to make the particles follow your mouse', 10, 30)
+
+  var positionX, postionY;
+
+  if(mode === 1){
+    positionX = ball.loc.x;
+    positionY = ball.loc.y;
+  }
+  if(mode === 2){
+    positionX = touchX;
+    positionY = touchY;
+  }
+
+
   fill(0,0,0);
   rect(0,0,width,height);
 
   for(var i=0; i<num; i++){
-    var distance = dist(touchX, touchY, x[i], y[i]); //dist(x1,y1,x2,y2) //Function to find the distance between two points
+    var distance = dist(positionX, positionY, x[i], y[i]); //dist(x1,y1,x2,y2) //Function to find the distance between two points
     // Acceleration is inversely proportional to the square of the distance from the center of gravity.
     if(distance > 3){ //Don't update acceleration if too close to mouse
-      ax[i] = magnetism * (touchX - x[i]) / (distance * distance);
-      ay[i] = magnetism * (touchY - y[i]) / (distance * distance);
+      ax[i] = magnetism * (positionX - x[i]) / (distance * distance);
+      ay[i] = magnetism * (positionY - y[i]) / (distance * distance);
     }
     vx[i] += ax[i]; // Increase speed vx by ax per frame.
     vy[i] += ay[i]; // Increase speed vy by ay per frame.
@@ -64,14 +91,7 @@ function draw(){
     fill(r, g, b, 32);
     ellipse(x[i], y[i], radius, radius);
   }
-  // for(var i=0; i< randomEllipses.length; i++) {
-  // randomEllipses[i].run();
-  // }
+
+  ball.run();
 
 }
-
-// function loadEllipses(n) {
-//   for(var i = 0; i < n; i++) {
-//     randomEllipses[i] = new Ellipse(mouseX + random(-50, 50), mouseY + random(-50, 50), random(2, 5))
-//   }
-// }
