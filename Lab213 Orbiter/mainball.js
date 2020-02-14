@@ -23,7 +23,7 @@ class Mainball {
   update() {
     this.loc.x = this.loc.x + this.vel.x;
     this.loc.y = this.loc.y + this.vel.y
-    this.angle += 0.41
+    this.angle += 0.05
   }
 
   checkEdges() {
@@ -40,10 +40,11 @@ class Mainball {
   render() {
     fill(255, 248, 117);
     ellipse(this.loc.x, this.loc.y, this.w);
-    fill(163, 247, 146);
+    fill(255, 150, 238);
+    stroke(255, 255, 255);
     for(var i = 0; i < this.orbiters.length; i++) {
-      var ox = this.loc.x + 30*cos(0);
-      var oy = this.loc.x + 30*sin(0);
+      var ox = this.loc.x + 30*cos(this.angle);
+      var oy = this.loc.y + 30*sin(this.angle);
 
       ellipse(ox, oy, 5)
     }
