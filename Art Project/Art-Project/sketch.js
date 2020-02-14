@@ -1,6 +1,6 @@
 //Attraction / repulsion model
 //Sky Gastinel
-//12 February 2020
+//13 February 2020
 var num = 1000;
 var vx = new Array(num);
 var vy = new Array(num);
