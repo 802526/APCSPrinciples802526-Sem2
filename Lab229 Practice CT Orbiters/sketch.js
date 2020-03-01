@@ -8,9 +8,9 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadPlanetballs(5);
-  loadNormalballs(5);
-  loadGravityballs(5);
+  loadPlanetballs(10);
+  loadNormalballs(0);
+  loadGravityballs(0);
 }
 
 //  The draw function is called @ 30 fps
@@ -23,7 +23,7 @@ function draw() {
 
 function loadPlanetballs(n) {
   for(var i = 0; i < n; i++){
-  balls[i] = new Planetball (random(10, 790), random(10, 790), 20, random(0.25, 2), random(0.25, 2))
+  balls[i] = new Planetball (random(10, 790), random(10, 790), 20, random(0.25, 2), random(0.25, 2), 0, 0.05)
   }
 }
 

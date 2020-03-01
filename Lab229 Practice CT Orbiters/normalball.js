@@ -30,7 +30,8 @@ class Normalball {
   }
 
   render() {
-    fill(255, 248, 117);
+    fill(0,0,0);
+    stroke(70, 70, 70)
     ellipse(this.loc.x, this.loc.y, this.w);
   }
 

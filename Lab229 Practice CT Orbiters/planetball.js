@@ -1,6 +1,6 @@
-class Planetball extends Normalball {
-  constructor(x, y, w, dx, dy) {
-    super(x, y, w, dx, dy);
+class Planetball extends Gravityball {
+  constructor(x, y, w, dx, dy, xacc, yacc) {
+    super(x, y, w, dx, dy, xacc, yacc);
     this.angle = random(TWO_PI)
     this.orbiters = [];
     this.loadOrbiters(1);
