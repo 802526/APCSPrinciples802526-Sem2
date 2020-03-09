@@ -11,5 +11,4 @@ class Gravityball extends Normalball{
       this.vel.div(this.vel.mag()/10.0)
     }
   }
-
 }
